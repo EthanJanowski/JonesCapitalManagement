@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jones Capital Management — General Contractor & Electrical</title>
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f9fc;color:#223}
+  header{background:#0b2545;color:#fff;padding:16px}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:48px;width:auto}
+  nav{margin-top:10px;display:flex;gap:12px;flex-wrap:wrap}
+  nav a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:6px}
+  nav a:hover{background:rgba(255,255,255,.1)}
+  main{padding:20px}
+  .card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin-bottom:20px}
+  .tabs{display:flex;gap:10px;margin-bottom:10px}
+  .tab{padding:8px 12px;border:1px solid #ccc;border-radius:6px;cursor:pointer}
+  .tab.active{background:#0b2545;color:#fff}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100}
+  .lightbox img{max-width:90%;max-height:90%}
+  .lightbox.show{display:flex}
+  .close{position:absolute;top:20px;right:20px;background:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
+  footer{background:#eef2f7;padding:14px;text-align:center;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="container brand">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIzMiIgZmlsbD0iI2YyYTkwMCIvPjwvc3ZnPg==" alt="Logo"/>
+    <div>
+      <h1 style="margin:0;font-size:20px">Jones Capital Management</h1>
+      <div style="font-size:13px">General Contractor • Electrical • Construction</div>
+    </div>
+  </div>
+  <nav class="container">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact" style="background:#f2a900;color:#0b2545;font-weight:bold">Call: 217-310-2978</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section id="home" class="card">
+    <h2>One Call. Every Fix. Every Project. Done Right.</h2>
+    <p>Licensed & insured general contractor and electrician serving Central Illinois.</p>
+  </section>
+
+  <section id="services" class="card">
+    <h3>Services</h3>
+    <ul>
+      <li>Electrical — wiring, panels, lighting</li>
+      <li>General contracting — remodels & carpentry</li>
+      <li>Plumbing — small repairs & fixtures</li>
+      <li>Concrete & paving — repairs & new</li>
+      <li>Drywall & painting — repair & finish</li>
+      <li>Handyman — one-call maintenance</li>
+    </ul>
+  </section>
+
+  <section id="pricing" class="card">
+    <h3>Pricing</h3>
+    <p><strong>Specialist Rate:</strong> $65/hr — $95/hr (1-hour minimum).</p>
+    <p>Half-day: $240 | Full-day: $460</p>
+  </section>
+
+  <section id="gallery" class="card">
+    <h3>Gallery</h3>
+    <div class="tabs">
+      <div class="tab active" data-tab="before">Before</div>
+      <div class="tab" data-tab="after">After</div>
+    </div>
+    <div id="galleryWrap" class="gallery"></div>
+  </section>
+
+  <section id="contact" class="card">
+    <h3>Request a Quote</h3>
+    <form action="https://formspree.io/f/mjkeqznn" method="POST">
+      <input type="text" name="name" placeholder="Full name" required><br><br>
+      <input type="tel" name="phone" placeholder="Phone" required><br><br>
+      <input type="email" name="email" placeholder="Email" required><br><br>
+      <textarea name="details" rows="4" placeholder="Describe the job & location"></textarea><br><br>
+      <button type="submit">Send Quote Request</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  © Jones Capital Management — Built on grit, driven by quality.
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" onclick="hideLightbox()">×</button>
+  <img id="lightImg" src="" alt="">
+</div>
+
+
+<script>
+const beforeImgs=['https://tse2.mm.bing.net/th/id/OIP.-YoQHrVecXAAQLIShetklwHaFj?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.d1ZTJpdKriiGt7mPfQ6LZAHaJ3?pid=Api', 'https://tse3.mm.bing.net/th/id/OIP.GZ5dFs4wH6oxkWOk4fTuygAAAA?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.x8-bfhI-csBaAlLuRbR6LwHaE8?pid=Api', 'https://tse3.mm.bing.net/th/id/OIP.QHxkQm382x0Dfr_fhiyUPQHaD7?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.gxiKP3ycrJR3hU0XGdKz4AHaFe?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.RPTB4UwgsTDDTIORIo6B3gHaE8?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.180YbVX7ZAUA-XIxehrrtQHaJ4?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.5FVen7NG1jmmnH_cCUB-cgHaEJ?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.LA-PlmiduqWcTPXz0tkJwAHaGv?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.3VZF29IZp3_X8lDrYhtZ_gHaJQ?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.1r3OzS8hNDuOH9_L0uE7wQHaHa?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.txWZUbnAjEyfq6LAbjpwEAHaEK?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.5MYluztndsBIIdvHHsOAfgHaE2?pid=Api', 'https://tse3.mm.bing.net/th/id/OIP.4IRkRCKePM4gpbCWd_XrmgHaHa?pid=Api'];
+const afterImgs=['https://tse4.mm.bing.net/th/id/OIP.TizX9d96Jx4VkiYhNeHeKwHaJl?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.f-B23aEcMWI44LGqJ0ordgHaHa?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.CL-BhcYuuzpBsNv7EldhAgHaJQ?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.txWZUbnAjEyfq6LAbjpwEAHaEK?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.4oGRa-IyHyiflND1J3YVLQHaJ4?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.1r3OzS8hNDuOH9_L0uE7wQHaHa?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.5FVen7NG1jmmnH_cCUB-cgHaEJ?pid=Api', 'https://tse4.mm.bing.net/th/id/OIP.LA-PlmiduqWcTPXz0tkJwAHaGv?pid=Api', 'https://tse3.mm.bing.net/th/id/OIP.GZ5dFs4wH6oxkWOk4fTuygAAAA?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.d1ZTJpdKriiGt7mPfQ6LZAHaJ3?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.-YoQHrVecXAAQLIShetklwHaFj?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.x8-bfhI-csBaAlLuRbR6LwHaE8?pid=Api', 'https://tse3.mm.bing.net/th/id/OIP.QHxkQm382x0Dfr_fhiyUPQHaD7?pid=Api', 'https://tse2.mm.bing.net/th/id/OIP.gxiKP3ycrJR3hU0XGdKz4AHaFe?pid=Api', 'https://tse1.mm.bing.net/th/id/OIP.RPTB4UwgsTDDTIORIo6B3gHaE8?pid=Api'];
+let current="before";
+const galleryWrap=document.getElementById("galleryWrap");
+function renderGallery(){
+  galleryWrap.innerHTML="";
+  const list=current==="before"?beforeImgs:afterImgs;
+  list.forEach(src=>{
+    const img=document.createElement("img");
+    img.src=src;
+    img.onclick=()=>showLightbox(src);
+    galleryWrap.appendChild(img);
+  });
+}
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    current=tab.dataset.tab;
+    renderGallery();
+  };
+});
+function showLightbox(src){
+  document.getElementById("lightImg").src=src;
+  document.getElementById("lightbox").classList.add("show");
+}
+function hideLightbox(){
+  document.getElementById("lightbox").classList.remove("show");
+}
+renderGallery();
+</script>
+
+</body>
+</html>
